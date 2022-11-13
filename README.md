@@ -20,6 +20,7 @@ The App was taken from mongo forum
 `node server.js`
 
 
-to switch between Oracle and Mongodb take a look at database.js and dbFunctions.js where you have to put your server connection ip where Oracle and where Mongodb are installed
+to switch between Oracle and Mongodb take a look at database.js and dbFunctions.js where you have to put your server connection ip where Oracle and where Mongodb are installed.
+In my case mongodb was on 27017 port (as usual)  and Oracle Mongo-API on 27018. port
 
 ORDS for Oracle is a requirement, and I mapped username on Oracle APPL1 as a schema for the collection 
