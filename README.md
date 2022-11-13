@@ -5,3 +5,11 @@
 <img width="660" alt="image" src="https://user-images.githubusercontent.com/53658658/201542381-1dc18335-6c09-43e6-9a73-45d31a34cba1.png">
 
 The App was taken from mongo forum 
+
+
+3) simple steps to run the app
+
+`gh repo clone lucbind/Oracle_Mongo_API_Lab`
+
+`cd Oracle_Mongo_API_Lab`
+
