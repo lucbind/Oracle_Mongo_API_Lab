@@ -1,0 +1,26 @@
+{
+  "name": "oracle_mongo_api_lab",
+  "version": "1.0.0",
+  "description": "The example shows the basic usage of the components used in a NodeJS web app - the front end (browser code with HTML, CSS and JavaScript) and the backend (the web server and database access code using NodeJS, ExpressJS and MongoDB NodeJS Driver APIs). The app has functionality to query (a GET request with a read database operation), add data (a POST request with a database insert operation) and delete data (a DELETE request with database delete operation).",
+  "main": "database.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prsaya/node-express-mongodb-html-demo-1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prsaya/node-express-mongodb-html-demo-1/issues"
+  },
+  "homepage": "https://github.com/prsaya/node-express-mongodb-html-demo-1#readme",
+  "keywords": [],
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongodb": "^4.11.0"
+  }
+}
