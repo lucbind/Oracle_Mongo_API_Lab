@@ -13,3 +13,12 @@ The App was taken from mongo forum
 
 `cd Oracle_Mongo_API_Lab`
 
+`npm init`
+
+`npm install`
+
+`node server.js`
+
+
+to switch between Oracle and Mongodb take a look at database.js and dbFunctions.js 
+
