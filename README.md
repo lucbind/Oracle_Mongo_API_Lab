@@ -7,7 +7,7 @@
 The App was taken from mongo forum 
 
 
-3) simple steps to run the app
+```3) simple steps to run the app```
 
 `gh repo clone lucbind/Oracle_Mongo_API_Lab`
 
@@ -22,3 +22,4 @@ The App was taken from mongo forum
 
 to switch between Oracle and Mongodb take a look at database.js and dbFunctions.js 
 
+ORDS for Oracle is a requirement, and I mapped username on Oracle APPL1 as a schema for the collection 
