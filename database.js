@@ -1,10 +1,10 @@
 const { MongoClient } = require("mongodb")
 //const uri = "mongodb://localhost:27017" //Per mongo
-//const uri = "mongodb://username:password@129.152.18.125:27018/?authMechanism=PLAIN&authSource=external&retryWrites=false&loadBalanced=true&tls=true&tlsAllowInvalidCertificates=true" //PER ORACLE
+//const uri = "mongodb://username:password@localhost:27018/?authMechanism=PLAIN&authSource=external&retryWrites=false&loadBalanced=true&tls=true&tlsAllowInvalidCertificates=true" //PER ORACLE
 
-//const uri = "mongodb://username:password@129.152.18.125:27018/?authMechanism=PLAIN&authSource=external&retryWrites=false&loadBalanced=true&tls=true&tlsAllowInvalidCertificates=true" //PER ORACLE
+//const uri = "mongodb://username:password@localhost:27018/?authMechanism=PLAIN&authSource=external&retryWrites=false&loadBalanced=true&tls=true&tlsAllowInvalidCertificates=true" //PER ORACLE
 
-const uri = "mongodb://username:password@129.152.18.125:27018/?authMechanism=PLAIN&authSource=external&retryWrites=false&loadBalanced=true&tls=true&tlsAllowInvalidCertificates=true" //PER ORACLE
+const uri = "mongodb://username:password@localhost:27018/?authMechanism=PLAIN&authSource=external&retryWrites=false&loadBalanced=true&tls=true&tlsAllowInvalidCertificates=true" //PER ORACLE
 
 
 const opts = { useUnifiedTopology: true }
