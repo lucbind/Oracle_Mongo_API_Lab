@@ -8,16 +8,17 @@ The App was taken from mongo forum
 
 
 ```*)Steps to run the app```
-
-> gh repo clone lucbind/Oracle_Mongo_API_Lab
-> 
-> cd Oracle_Mongo_API_Lab
-> 
-> npm init
-> 
-> npm install
-> 
-> node server.js
+```
+gh repo clone lucbind/Oracle_Mongo_API_Lab
+ 
+cd Oracle_Mongo_API_Lab
+ 
+npm init
+ 
+npm install
+ 
+node server.js
+```
 
 The app run on http://localhost:3000/app.html
 
