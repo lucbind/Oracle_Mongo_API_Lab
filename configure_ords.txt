@@ -1,0 +1,1761 @@
+[oracle@mongo-api databases]$ ords --config /home/oracle/ORDSConfig install
+
+ORDS: Release 22.4 Production on Tue Jan 03 17:07:34 2023
+
+Copyright (c) 2010, 2023, Oracle.
+
+Configuration:
+  /home/oracle/ORDSConfig/
+
+Oracle REST Data Services - Interactive Install
+
+  Enter a number to select the type of installation
+    [1] Install or upgrade ORDS in the database only
+    [2] Create or update a database pool and install/upgrade ORDS in the database
+    [3] Create or update a database pool only
+  Choose [1]: 2
+  Enter a number to select the database connection type to use
+    [1] Basic (host name, port, service name)
+    [2] TNS (TNS alias, TNS directory)
+    [3] Custom database URL
+  Choose [1]:
+  Enter the database host name [localhost]:
+  Enter the database listen port [1521]:
+  Enter the database service name [orcl]: orclpdb1
+  Provide database user name with administrator privileges.
+    Enter the administrator username: sys
+  Enter the database password for SYS AS SYSDBA:
+Connecting to database user: SYS AS SYSDBA url: jdbc:oracle:thin:@//localhost:1521/orclpdb1
+
+Retrieving information.
+  Enter the default tablespace for ORDS_METADATA and ORDS_PUBLIC_USER [SYSAUX]:
+  Enter the temporary tablespace for ORDS_METADATA and ORDS_PUBLIC_USER [TEMP]:
+  Enter a number to select additional feature(s) to enable:
+    [1] Database Actions  (Enables all features)
+    [2] REST Enabled SQL and Database API
+    [3] REST Enabled SQL
+    [4] Database API
+    [5] None
+  Choose [1]:
+  Enter a number to configure and start ORDS in standalone mode
+    [1] Configure and start ORDS in standalone mode
+    [2] Skip
+  Choose [1]:
+  Enter a number to select the protocol
+    [1] HTTP
+    [2] HTTPS
+  Choose [1]:
+  Enter the HTTP port [8080]:
+The setting named: db.servicename was set to: orclpdb1 in configuration: default
+The setting named: db.password was set to: ****** in configuration: default
+2023-01-03T17:08:24.626Z INFO        Installing Oracle REST Data Services version 22.4.0.r3401044 in ORCLPDB1
+------------------------------------------------------------
+Date       : 03 Jan 2023 17:08:24
+Release    : Oracle REST Data Services 22.4.0.r3401044
+Type       : ORDS Install
+Database   : Oracle Database 21c Enterprise Edition
+DB Version : 21.3.0.0.0
+------------------------------------------------------------
+Container Name: ORCLPDB1
+Executing scripts for core
+------------------------------------------------------------
+
+[*** script: ords_prereq_env.sql]
+
+INFO: Checking prerequisites for Oracle REST Data Services
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+INFO: Prerequisites verified.
+
+2023-01-03T17:08:27.325Z INFO        ... Verified database prerequisites
+[*** script: ords_verify_tablespace.sql]
+
+PL/SQL procedure successfully completed.
+
+[*** script: ords_alter_session_script.sql]
+
+PL/SQL procedure successfully completed.
+
+[*** script: ords_create_rest_users.sql]
+
+PL/SQL procedure successfully completed.
+
+2023-01-03T17:08:28.740Z INFO        ... Created Oracle REST Data Services proxy user
+[*** script: ords_alter_session_script.sql]
+
+PL/SQL procedure successfully completed.
+
+[*** script: ords_create_schema.sql]
+INFO: Creating schema for Oracle REST Data Services
+
+PL/SQL procedure successfully completed.
+
+INFO: Created schema ORDS_METADATA
+2023-01-03T17:08:29.776Z INFO        ... Created Oracle REST Data Services schema
+[*** script: ords_grant_privs.sql]
+INFO: Grant object and system privileges to ORDS owner
+GRANT READ ON SYS.DBA_OBJECTS TO "ORDS_METADATA"
+GRANT READ ON SYS.DBA_ROLE_PRIVS TO "ORDS_METADATA"
+GRANT READ ON SYS.DBA_TAB_COLUMNS TO "ORDS_METADATA"
+GRANT READ ON SYS.DBA_USERS TO "ORDS_METADATA"
+GRANT READ ON SYS.DBA_REGISTRY TO "ORDS_METADATA"
+
+
+PL/SQL procedure successfully completed.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+
+Grant succeeded.
+
+INFO: Completed granting object and system privileges
+2023-01-03T17:08:30.196Z INFO        ... Granted privileges to Oracle REST Data Services
+[*** script: ords_alter_session_metadata.sql]
+
+Session altered.
+
+[*** script: ords_validate.sql]
+
+Procedure VALIDATE_ORDS compiled
+
+[*** script: ords_database_objects.sql]
+
+Table CFG_PLSQL_GATEWAYS created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+INDEX CFG_PLSQL_GATEWAYS_IDX1 created.
+
+
+INDEX CFG_PLSQL_GATEWAYS_IDX2 created.
+
+
+Table CFG_PLSQL_GATEWAYS altered.
+
+
+Table OAUTH_APPROVAL_PRIVS created.
+
+
+INDEX OAUTH_APP_PRIVS_UNIQUE1 created.
+
+
+Index OAUTH_APP_PRIVS_IDX1 created.
+
+
+Index OAUTH_APP_PRIVS_IDX2 created.
+
+
+Table OAUTH_APPROVAL_PRIVS altered.
+
+
+Table OAUTH_APPROVALS created.
+
+
+Table OAUTH_APPROVALS altered.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+INDEX OAUTH_APPROVALS_UNIQUE1 created.
+
+
+Index OAUTH_APPROVALS_IDX1 created.
+
+
+Index OAUTH_APPROVALS_IDX2 created.
+
+
+Index OAUTH_APPROVALS_IDX3 created.
+
+
+Table OAUTH_APPROVALS altered.
+
+
+Table OAUTH_CLIENT_PRIVILEGES created.
+
+
+INDEX OAUTH_CLIENT_PRIVS_UNIQ1 created.
+
+
+Index OAUTH_CLIENT_PRIVS_IDX1 created.
+
+
+Index OAUTH_CLIENT_PRIVS_IDX2 created.
+
+
+Table OAUTH_CLIENT_PRIVILEGES altered.
+
+
+Table OAUTH_CLIENT_ROLES created.
+
+
+Table OAUTH_CLIENT_ROLES altered.
+
+
+Table OAUTH_CLIENTS created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+INDEX OAUTH_CLIENTS_UNIQUE1 created.
+
+
+INDEX OAUTH_CLIENTS_UNIQUE2 created.
+
+
+Index OAUTH_CLIENTS_IDX1 created.
+
+
+Table OAUTH_CLIENTS altered.
+
+
+Table OAUTH_CLIENTS altered.
+
+
+Table OAUTH_CLIENTS altered.
+
+
+Table OAUTH_PENDING_APPROVALS created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Index OAUTH_PEND_APPRV_IDX1 created.
+
+
+Index OAUTH_PEND_APPRV_IDX2 created.
+
+
+Index OAUTH_PEND_APPRV_IDX3 created.
+
+
+Table OAUTH_PENDING_APPROVALS altered.
+
+
+Table OAUTH_PENDING_APPROVALS altered.
+
+
+Table OAUTH_SESSIONS created.
+
+
+Comment created.
+
+
+INDEX OAUTH_USER_SESS_IDX1 created.
+
+
+Index OAUTH_USER_SESS_IDX4 created.
+
+
+Table OAUTH_SESSIONS altered.
+
+
+Table ORDS_HANDLERS created.
+
+
+Table ORDS_HANDLERS altered.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+INDEX ORDS_HANDLERS_UNIQUE1 created.
+
+
+Index ORDS_HANDLERS_IDX2 created.
+
+
+Index ORDS_HANDLERS_IDX3 created.
+
+
+Table ORDS_HANDLERS altered.
+
+
+Table ORDS_MODULES created.
+
+
+Table ORDS_MODULES altered.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+INDEX ORDS_MODULES_UNIQUE1 created.
+
+
+Table ORDS_MODULES altered.
+
+
+Table ORDS_MODULES altered.
+
+
+Table ORDS_MODULES altered.
+
+
+Table ORDS_OBJECTS created.
+
+
+Table ORDS_OBJECTS altered.
+
+
+Table ORDS_OBJECTS altered.
+
+
+Table ORDS_OBJECTS altered.
+
+
+Table ORDS_OBJECTS altered.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+INDEX ORDS_OBJECTS_PK created.
+
+
+INDEX ORDS_OBJECTS_ALIAS_UN created.
+
+
+Index ORDS_OBJECTS_UOS_IDX created.
+
+
+Table ORDS_OBJECTS altered.
+
+
+Table ORDS_PARAMETERS created.
+
+
+Table ORDS_PARAMETERS altered.
+
+
+Table ORDS_PARAMETERS altered.
+
+
+Table ORDS_PARAMETERS altered.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+INDEX ORDS_PARAMS_UNIQUE1 created.
+
+
+INDEX ORDS_PARAMS_UNIQUE2 created.
+
+
+Index ORDS_PARAMS_IDX1 created.
+
+
+Index ORDS_PARAMS_IDX2 created.
+
+
+Table ORDS_PARAMETERS altered.
+
+
+Table ORDS_PARAMETERS altered.
+
+
+Table ORDS_PARAMETERS altered.
+
+
+Table ORDS_PARAMETERS altered.
+
+
+Table ORDS_PARAMETERS altered.
+
+
+Table ORDS_PROP_FACTS created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+INDEX ORDS_PROP_FACTS_UNQ created.
+
+
+Index ORDS_PROP_FACTS_IDX created.
+
+
+Index ORDS_PROP_FACTS_IDX2 created.
+
+
+Table ORDS_PROP_FACTS altered.
+
+
+Table ORDS_PROP_FACTS altered.
+
+
+Table ORDS_PROP_FACTS altered.
+
+
+Table ORDS_PROP_VALUES created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Index ORDS_PROP_VALUES_IDX created.
+
+
+Index ORDS_PROP_VALUES_IDX2 created.
+
+
+Table ORDS_PROP_VALUES altered.
+
+
+Table ORDS_SCHEMA_VERSION created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Table ORDS_SCHEMA_VERSION altered.
+
+
+Table ORDS_SCHEMAS created.
+
+
+Table ORDS_SCHEMAS altered.
+
+
+Table ORDS_SCHEMAS altered.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+INDEX ORDS_SCHEMAS_PARSING created.
+
+
+Table ORDS_SCHEMAS altered.
+
+
+Table ORDS_TEMPLATES created.
+
+
+Table ORDS_TEMPLATES altered.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+INDEX ORDS_TEMPLATES_UNIQUE1 created.
+
+
+Index ORDS_TEMPLATES_IDX1 created.
+
+
+Index ORDS_TEMPLATES_IDX2 created.
+
+
+Table ORDS_TEMPLATES altered.
+
+
+Table ORDS_TEMPLATES altered.
+
+
+Table ORDS_TEMPLATES altered.
+
+
+Table ORDS_TEMPLATES altered.
+
+
+Table ORDS_URL_MAPPINGS created.
+
+
+Table ORDS_URL_MAPPINGS altered.
+
+
+Table ORDS_URL_MAPPINGS altered.
+
+
+Table ORDS_URL_MAPPINGS altered.
+
+
+Table ORDS_WORKSPACE_SCHEMAS created.
+
+
+Table ORDS_WORKSPACE_SCHEMAS altered.
+
+
+Table ORDS_WORKSPACE_SCHEMAS altered.
+
+
+Table SEC_AUTHENTICATORS created.
+
+
+Table SEC_AUTHENTICATORS altered.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+INDEX SEC_AUTHS_UNQ_NAME created.
+
+
+INDEX SEC_AUTHS_UNQ_PROVIDER created.
+
+
+Table SEC_AUTHENTICATORS altered.
+
+
+Table SEC_KEYS created.
+
+
+Table SEC_KEYS altered.
+
+
+Table SEC_OBJECT_ALLOW_LIST created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+INDEX SEC_OBJECT_ALLOW_LIST_UNIQUE1 created.
+
+
+Table SEC_OBJECT_ALLOW_LIST altered.
+
+
+Table SEC_OBJECT_ALLOW_LIST altered.
+
+
+Table SEC_ORIGINS_ALLOWED_MODULES created.
+
+
+Table SEC_ORIGINS_ALLOWED_MODULES altered.
+
+
+Table SEC_ORIGINS_ALLOWED_MODULES altered.
+
+
+Table SEC_PRIVILEGE_AUTHS created.
+
+
+INDEX PRIVILEGE_AUTHS_UNIQUE1 created.
+
+
+Table SEC_PRIVILEGE_AUTHS altered.
+
+
+Table SEC_PRIVILEGE_MAPPINGS created.
+
+
+Table SEC_PRIVILEGE_MAPPINGS altered.
+
+
+Table SEC_PRIVILEGE_MAPPINGS altered.
+
+
+Table SEC_PRIVILEGE_MODULES created.
+
+
+Table SEC_PRIVILEGE_MODULES altered.
+
+
+Table SEC_PRIVILEGE_MODULES altered.
+
+
+Table SEC_PRIVILEGE_ROLES created.
+
+
+INDEX PRIVILEGE_ROLES_UNIQUE1 created.
+
+
+Table SEC_PRIVILEGE_ROLES altered.
+
+
+Table SEC_PRIVILEGES created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+Comment created.
+
+
+INDEX PRIVILEGES_UNQ_NAME created.
+
+
+Table SEC_PRIVILEGES altered.
+
+
+Table SEC_ROLE_MAPPINGS created.
+
+
+INDEX ROLE_MAPPINGS_UNQ_PATTERN created.
+
+
+Table SEC_ROLE_MAPPINGS altered.
+
+
+Table SEC_ROLES created.
+
+
+INDEX ROLES_UNQ_NAME created.
+
+
+Table SEC_ROLES altered.
+
+
+Table SEC_SESSIONS created.
+
+
+Table SEC_SESSIONS altered.
+
+
+Table SEC_SESSIONS altered.
+
+
+Table SEC_SESSIONS altered.
+
+
+Table SEC_AUTHENTICATORS altered.
+
+
+Table OAUTH_APPROVAL_PRIVS altered.
+
+
+Table OAUTH_APPROVAL_PRIVS altered.
+
+
+Table OAUTH_APPROVAL_PRIVS altered.
+
+
+Table OAUTH_APPROVALS altered.
+
+
+Table OAUTH_APPROVALS altered.
+
+
+Table OAUTH_CLIENT_PRIVILEGES altered.
+
+
+Table OAUTH_CLIENT_PRIVILEGES altered.
+
+
+Table OAUTH_CLIENT_PRIVILEGES altered.
+
+
+Table OAUTH_CLIENT_ROLES altered.
+
+
+Table OAUTH_CLIENT_ROLES altered.
+
+
+Table OAUTH_CLIENT_ROLES altered.
+
+
+Table OAUTH_CLIENTS altered.
+
+
+Table OAUTH_PENDING_APPROVALS altered.
+
+
+Table OAUTH_PENDING_APPROVALS altered.
+
+
+Table OAUTH_SESSIONS altered.
+
+
+Table OAUTH_SESSIONS altered.
+
+
+Table OAUTH_SESSIONS altered.
+
+
+Table ORDS_HANDLERS altered.
+
+
+Table ORDS_HANDLERS altered.
+
+
+Table ORDS_MODULES altered.
+
+
+Table ORDS_OBJECTS altered.
+
+
+Table ORDS_PARAMETERS altered.
+
+
+Table ORDS_PARAMETERS altered.
+
+
+Table ORDS_PROP_VALUES altered.
+
+
+Table ORDS_PROP_VALUES altered.
+
+
+Table ORDS_SCHEMAS altered.
+
+
+Table ORDS_TEMPLATES altered.
+
+
+Table ORDS_TEMPLATES altered.
+
+
+Table ORDS_WORKSPACE_SCHEMAS altered.
+
+
+Table SEC_PRIVILEGE_AUTHS altered.
+
+
+Table SEC_PRIVILEGE_AUTHS altered.
+
+
+Table SEC_PRIVILEGE_AUTHS altered.
+
+
+Table SEC_PRIVILEGE_ROLES altered.
+
+
+Table SEC_PRIVILEGE_ROLES altered.
+
+
+Table SEC_PRIVILEGE_ROLES altered.
+
+
+Table SEC_PRIVILEGES altered.
+
+
+Table SEC_ROLE_MAPPINGS altered.
+
+
+Table SEC_ROLE_MAPPINGS altered.
+
+
+Table SEC_ROLES altered.
+
+
+Table SEC_KEYS altered.
+
+
+Table SEC_ORIGINS_ALLOWED_MODULES altered.
+
+
+Table SEC_PRIVILEGE_MAPPINGS altered.
+
+
+Table SEC_PRIVILEGE_MAPPINGS altered.
+
+
+Table SEC_PRIVILEGE_MODULES altered.
+
+
+Table SEC_PRIVILEGE_MODULES altered.
+
+
+Table SEC_PRIVILEGE_MODULES altered.
+
+
+Table SEC_SESSIONS altered.
+
+
+View DBA_ORDS_PROP_DB_VALUES created.
+
+
+View DBA_ORDS_PROP_FACTS created.
+
+
+View DBA_ORDS_PROP_SCHEMA_VALUES created.
+
+
+View DBA_ORDS_SCHEMAS created.
+
+
+View DBA_ORDS_URL_MAPPINGS created.
+
+
+View DBA_PLSQL_GATEWAY_ALLOW_LIST created.
+
+
+View ORDS_CLIENT_ROLES created.
+
+
+View ORDS_MODULE_SERVICES created.
+
+
+View ORDS_PRIVILEGE_MAPPINGS created.
+
+
+View ORDS_REPVERSION created.
+
+
+View ORDS_VERSION created.
+
+
+View PLSQL_GATEWAY_ALLOW_LIST created.
+
+
+View PLSQL_GATEWAY_CONFIG created.
+
+
+View POOL_CONFIG created.
+
+
+View USER_ORDS_APPROVALS created.
+
+
+View USER_ORDS_CLIENT_PRIVILEGES created.
+
+
+View USER_ORDS_CLIENT_ROLES created.
+
+
+View USER_ORDS_CLIENTS created.
+
+
+View USER_ORDS_ENABLED_OBJECTS created.
+
+
+View USER_ORDS_HANDLERS created.
+
+
+View USER_ORDS_MODULES created.
+
+
+View USER_ORDS_OBJ_MEMBERS created.
+
+
+View USER_ORDS_OBJECTS created.
+
+
+View USER_ORDS_PARAMETERS created.
+
+
+View USER_ORDS_PENDING_APPROVALS created.
+
+
+View USER_ORDS_PRIVILEGE_MAPPINGS created.
+
+
+View USER_ORDS_PRIVILEGES created.
+
+
+View USER_ORDS_PRIVILEGE_MODULES created.
+
+
+View USER_ORDS_ROLES created.
+
+
+View USER_ORDS_PRIVILEGE_ROLES created.
+
+
+View USER_ORDS_PROPERTIES created.
+
+
+View USER_ORDS_SCHEMAS created.
+
+
+View USER_ORDS_SERVICES created.
+
+
+View USER_ORDS_TEMPLATES created.
+
+2023-01-03T17:08:33.558Z INFO        ... Created Oracle REST Data Services database objects
+[*** script: ords_triggers.sql]
+
+Sequence ORDS_ID_SEQ created.
+
+
+Trigger OAUTH_APPROVALS_TRG compiled
+
+
+Trigger OAUTH_APPROVAL_PRIVS_TRG compiled
+
+
+Trigger OAUTH_CLIENTS_TRG compiled
+
+
+Trigger OAUTH_CLIENT_PRIVILEGES_TRG compiled
+
+
+Trigger OAUTH_PENDING_APPROVALS_TRG compiled
+
+
+Trigger OAUTH_SESSIONS_TRG compiled
+
+
+Trigger ORDS_HANDLERS_TRG compiled
+
+
+Trigger ORDS_MODULES_TRG compiled
+
+
+Trigger ORDS_PARAMETERS_TRG compiled
+
+
+Trigger ORDS_SCHEMAS_TRG compiled
+
+
+Trigger ORDS_OBJECTS_TRG compiled
+
+
+Trigger ORDS_TEMPLATES_TRG compiled
+
+
+Trigger ORDS_URL_MAPPINGS_TRG compiled
+
+
+Trigger SEC_AUTHENTICATORS_TRG compiled
+
+
+Trigger SEC_ROLES_TRG compiled
+
+
+Trigger SEC_PRIVILEGES_TRG compiled
+
+
+Trigger SEC_ROLE_MAPPINGS_TRG compiled
+
+
+Trigger SEC_PRIVILEGE_AUTHS_TRG compiled
+
+
+Trigger SEC_PRIVILEGE_ROLES_TRG compiled
+
+
+Trigger SEC_PRIVILEGE_MODULES_TRG compiled
+
+
+Trigger SEC_SESSIONS_TRG compiled
+
+
+Trigger SEC_KEYS_TRG compiled
+
+
+Trigger ORDS_WORKSPACE_SCHEMAS_TRG compiled
+
+
+Trigger SEC_ORIG_ALLOWED_MOD_TRG compiled
+
+
+Trigger SEC_PRIV_MAPS_TRG compiled
+
+
+Trigger OAUTH_CLIENT_ROLES_TRG compiled
+
+
+Trigger ORDS_SCHEMA_VERSION_TRG compiled
+
+
+Trigger CFG_PLSQL_GATEWAYS_TRG compiled
+
+
+Trigger SEC_OBJECT_ALLOW_LIST_TRG compiled
+
+
+Trigger ORDS_PROP_FACTS_TRG compiled
+
+
+Trigger ORDS_PROP_VALUES_TRG compiled
+
+[*** script: ords_types.sql]
+
+Type T_ORDS_VCHAR_TAB compiled
+
+
+Type T_ORDS_NUM_TAB compiled
+
+
+Type T_ORDS_ATTR_SUPPORT_OBJ compiled
+
+
+Type T_ORDS_ATTR_SUPPORT_TAB compiled
+
+
+PL/SQL procedure successfully completed.
+
+
+Type T_ORDS_METADATA_TYPE compiled
+
+
+Type T_ORDS_METADATA_TYPE_LIST compiled
+
+
+Type T_ORDS_MODULE_PRIVILEGE compiled
+
+
+Type Body T_ORDS_MODULE_PRIVILEGE compiled
+
+
+Type T_ORDS_MODULE_ORIGINS_ALLOWED compiled
+
+
+Type Body T_ORDS_MODULE_ORIGINS_ALLOWED compiled
+
+
+Type T_ORDS_PARAMETER compiled
+
+
+Type Body T_ORDS_PARAMETER compiled
+
+
+Type T_ORDS_PARAMETER_LIST compiled
+
+
+Type T_ORDS_HANDLER compiled
+
+
+Type Body T_ORDS_HANDLER compiled
+
+
+Type T_ORDS_HANDLER_LIST compiled
+
+
+Type T_ORDS_TEMPLATE compiled
+
+
+Type Body T_ORDS_TEMPLATE compiled
+
+
+Type T_ORDS_TEMPLATE_LIST compiled
+
+
+Type T_ORDS_MODULE compiled
+
+
+Type Body T_ORDS_MODULE compiled
+
+
+Type T_ORDS_MODULE_LIST compiled
+
+[*** script: ords_version.sql]
+
+Session altered.
+
+
+PL/SQL procedure successfully completed.
+
+[*** script: ords_constants.pls]
+
+Package ORDS_CONSTANTS compiled
+
+[*** script: ords_util.pls]
+
+Package ORDS_UTIL compiled
+
+[*** script: ords.pls]
+
+Package ORDS compiled
+
+[*** script: ords_internal.pls]
+
+Package ORDS_INTERNAL compiled
+
+[*** script: ords_security.pls]
+
+Package ORDS_SECURITY compiled
+
+[*** script: ords_services_internal.pls]
+
+Package ORDS_SERVICES_INTERNAL compiled
+
+[*** script: ords_services.pls]
+
+Package ORDS_SERVICES compiled
+
+[*** script: ords_oper.pls]
+
+Package ORDS_OPER compiled
+
+[*** script: oauth_internal.pls]
+
+Package OAUTH_INTERNAL compiled
+
+[*** script: oauth.pls]
+
+Package OAUTH compiled
+
+[*** script: ords_export.pls]
+
+Package ORDS_EXPORT compiled
+
+[*** script: ords_admin_internal.pls]
+
+Package ORDS_ADMIN_INTERNAL compiled
+
+[*** script: ords_admin.pls]
+
+Package ORDS_ADMIN compiled
+
+[*** script: ords_util.plb]
+
+Package Body ORDS_UTIL compiled
+
+[*** script: ords_internal.plb]
+
+Package Body ORDS_INTERNAL compiled
+
+[*** script: ords_security.plb]
+
+Package Body ORDS_SECURITY compiled
+
+[*** script: ords_services_internal.plb]
+
+Package Body ORDS_SERVICES_INTERNAL compiled
+
+[*** script: ords_services.plb]
+
+Package Body ORDS_SERVICES compiled
+
+[*** script: ords.plb]
+
+Package Body ORDS compiled
+
+[*** script: ords_oper.plb]
+
+Package Body ORDS_OPER compiled
+
+[*** script: oauth_internal.plb]
+
+Package Body OAUTH_INTERNAL compiled
+
+[*** script: oauth.plb]
+
+Package Body OAUTH compiled
+
+[*** script: ords_export.plb]
+
+Package Body ORDS_EXPORT compiled
+
+[*** script: ords_admin_internal.plb]
+
+Package Body ORDS_ADMIN_INTERNAL compiled
+
+[*** script: ords_admin.plb]
+
+Package Body ORDS_ADMIN compiled
+
+[*** script: ords_database_roles.sql]
+
+PL/SQL procedure successfully completed.
+
+[*** script: ords_pub_synonyms_grants.sql]
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+
+Grant succeeded.
+
+
+SYNONYM USER_ORDS_REPOVERSIONS created.
+
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+[*** script: ords_schema_mapping.sql]
+INFO: Configuring ORDS_PUBLIC_USER to map APEX Workspaces and ORDS schemas
+
+Session altered.
+
+Configuring APEX and ORDS schemas for url mapping
+APEX_PUBLIC_USER does not exist
+APEX_REST_PUBLIC_USER does not exist
+APEX is not installed, or could not be detected, stubbing out
+ORDS_METADATA.APEX_WWV_FLOW_POOL_CONFIG
+
+
+PL/SQL procedure successfully completed.
+
+INFO: Completed configuring ORDS_PUBLIC_USER to map APEX Workspaces and ORDS Schemas
+
+Session altered.
+
+[*** script: ords_app_contexts.sql]
+
+PL/SQL procedure successfully completed.
+
+[*** script: ords_seed.sql]
+
+PL/SQL procedure successfully completed.
+
+
+PL/SQL procedure successfully completed.
+
+[*** script: ords_verify_install.sql]
+
+Session altered.
+
+INFO: 17:08:39 Validating objects for Oracle REST Data Services.
+VALIDATION: 17:08:39 Starting validation for schema: ORDS_METADATA
+VALIDATION: 17:08:39 Validating objects
+VALIDATION: 17:08:39 Validating roles granted to ORDS_METADATA and
+ORDS_PUBLIC_USER
+VALIDATION: 17:08:39 Validating ORDS Public Synonyms
+VALIDATION: 17:08:40 Total objects: 289, invalid objects: 0, missing objects: 0
+VALIDATION: 17:08:40     88  INDEX
+VALIDATION: 17:08:40      3  LOB
+VALIDATION: 17:08:40     13  PACKAGE
+VALIDATION: 17:08:40     12  PACKAGE BODY
+VALIDATION: 17:08:40      1  PROCEDURE
+VALIDATION: 17:08:40     51  PUBLIC SYNONYM
+VALIDATION: 17:08:40      1  SEQUENCE
+VALIDATION: 17:08:40     31  TABLE
+VALIDATION: 17:08:40     31  TRIGGER
+VALIDATION: 17:08:40     16  TYPE
+VALIDATION: 17:08:40      6  TYPE BODY
+VALIDATION: 17:08:40     36  VIEW
+VALIDATION: 17:08:40 Validation completed.
+INFO: 17:08:40 Completed validation for Oracle REST Data Services.
+
+
+PL/SQL procedure successfully completed.
+
+
+Commit complete.
+
+[*** script: ords_version.sql]
+
+Session altered.
+
+
+PL/SQL procedure successfully completed.
+
+------------------------------------------------------------
+Container Name: ORCLPDB1
+Executing scripts for datamodel
+------------------------------------------------------------
+
+[*** script: ords_alter_session_script.sql]
+
+PL/SQL procedure successfully completed.
+
+[*** script: ords_alter_session_metadata.sql]
+
+Session altered.
+
+[*** script: dm_grant_privs.sql]
+INFO: Grant object and system privileges to ORDS owner for datamodel team
+
+Grant succeeded.
+
+INFO: Completed granting object and system privileges for datamodel team
+[*** script: dm_types.sql]
+
+Type DM_VARCHAR_TABLE compiled
+
+
+Type DM_DDL_DESC compiled
+
+
+Type DM_DDL_ROW compiled
+
+
+Type DM_DDL_TAB compiled
+
+[*** script: osddm_dbms_md_ddl.pls]
+
+Package OSDDM_DBMS_MD_DDL compiled
+
+[*** script: osddm_dbms_md_ddl.plb]
+
+Package Body OSDDM_DBMS_MD_DDL compiled
+
+[*** script: dm_grants_synonyms.sql]
+
+PL/SQL procedure successfully completed.
+
+[*** script: ords_verify_install.sql]
+
+Session altered.
+
+INFO: 17:08:40 Validating objects for Oracle REST Data Services.
+VALIDATION: 17:08:40 Starting validation for schema: ORDS_METADATA
+VALIDATION: 17:08:40 Validating objects
+VALIDATION: 17:08:41 Validating roles granted to ORDS_METADATA and
+ORDS_PUBLIC_USER
+VALIDATION: 17:08:41 Validating ORDS Public Synonyms
+VALIDATION: 17:08:41 Total objects: 296, invalid objects: 0, missing objects: 0
+VALIDATION: 17:08:41     88  INDEX
+VALIDATION: 17:08:41      3  LOB
+VALIDATION: 17:08:41     14  PACKAGE
+VALIDATION: 17:08:41     13  PACKAGE BODY
+VALIDATION: 17:08:41      1  PROCEDURE
+VALIDATION: 17:08:41     52  PUBLIC SYNONYM
+VALIDATION: 17:08:41      1  SEQUENCE
+VALIDATION: 17:08:41     31  TABLE
+VALIDATION: 17:08:41     31  TRIGGER
+VALIDATION: 17:08:41     20  TYPE
+VALIDATION: 17:08:41      6  TYPE BODY
+VALIDATION: 17:08:41     36  VIEW
+VALIDATION: 17:08:41 Validation completed.
+INFO: 17:08:41 Completed validation for Oracle REST Data Services.
+
+
+PL/SQL procedure successfully completed.
+
+
+Commit complete.
+
+------------------------------------------------------------
+Container Name: ORCLPDB1
+Executing scripts for scheduler
+------------------------------------------------------------
+
+[*** script: ords_alter_session_script.sql]
+
+PL/SQL procedure successfully completed.
+
+[*** script: ords_alter_session_metadata.sql]
+
+Session altered.
+
+[*** script: sch_grant_privs.sql]
+INFO: Grant object and system privileges to ORDS owner for scheduler team
+INFO: Completed granting object and system privileges for scheduler team
+[*** script: ords_sdw_scheduler.pls]
+
+Package ORDS_SDW_SCHEDULER compiled
+
+[*** script: ords_sdw_sched_jobs.pls]
+
+Package ORDS_SDW_SCHED_JOBS compiled
+
+[*** script: ords_sdw_sched_rprt.pls]
+
+Package ORDS_SDW_SCHED_RPRT compiled
+
+[*** script: ords_sdw_scheduler.plb]
+
+Package Body ORDS_SDW_SCHEDULER compiled
+
+[*** script: ords_sdw_sched_jobs.plb]
+
+Package Body ORDS_SDW_SCHED_JOBS compiled
+
+[*** script: ords_sdw_sched_rprt.plb]
+
+Package Body ORDS_SDW_SCHED_RPRT compiled
+
+[*** script: sch_grants_synonyms.sql]
+
+PL/SQL procedure successfully completed.
+
+[*** script: ords_verify_install.sql]
+
+Session altered.
+
+INFO: 17:08:43 Validating objects for Oracle REST Data Services.
+VALIDATION: 17:08:43 Starting validation for schema: ORDS_METADATA
+VALIDATION: 17:08:43 Validating objects
+VALIDATION: 17:08:43 Validating roles granted to ORDS_METADATA and
+ORDS_PUBLIC_USER
+VALIDATION: 17:08:43 Validating ORDS Public Synonyms
+VALIDATION: 17:08:43 Total objects: 305, invalid objects: 0, missing objects: 0
+VALIDATION: 17:08:43     88  INDEX
+VALIDATION: 17:08:43      3  LOB
+VALIDATION: 17:08:43     17  PACKAGE
+VALIDATION: 17:08:43     16  PACKAGE BODY
+VALIDATION: 17:08:43      1  PROCEDURE
+VALIDATION: 17:08:43     55  PUBLIC SYNONYM
+VALIDATION: 17:08:43      1  SEQUENCE
+VALIDATION: 17:08:43     31  TABLE
+VALIDATION: 17:08:43     31  TRIGGER
+VALIDATION: 17:08:43     20  TYPE
+VALIDATION: 17:08:43      6  TYPE BODY
+VALIDATION: 17:08:43     36  VIEW
+VALIDATION: 17:08:43 Validation completed.
+INFO: 17:08:43 Completed validation for Oracle REST Data Services.
+
+
+PL/SQL procedure successfully completed.
+
+
+Commit complete.
+
+------------------------------------------------------------
+Container Name: ORCLPDB1
+Executing scripts for apex
+------------------------------------------------------------
+
+[*** script: ords_alter_session_script.sql]
+
+PL/SQL procedure successfully completed.
+
+[*** script: ords_alter_session_metadata.sql]
+
+Session altered.
+
+[*** script: ords_migrate.pls]
+
+Package ORDS_MIGRATE compiled
+
+[*** script: ords_apex_repair_internal.pls]
+
+Package ORDS_APEX_REPAIR_INTERNAL compiled
+
+[*** script: ords_apex_repair.pls]
+
+Package ORDS_APEX_REPAIR compiled
+
+[*** script: ords_apex_sso.pls]
+
+Package ORDS_APEX_SSO compiled
+
+[*** script: ords_migrate.plb]
+
+Package Body ORDS_MIGRATE compiled
+
+[*** script: ords_apex_repair_internal.plb]
+
+Package Body ORDS_APEX_REPAIR_INTERNAL compiled
+
+[*** script: ords_apex_repair.plb]
+
+Package Body ORDS_APEX_REPAIR compiled
+
+[*** script: ords_apex_sso.plb]
+
+Package Body ORDS_APEX_SSO compiled
+
+[*** script: ords_migrate_pub_synonym.sql]
+
+Synonym ORDS_MIGRATE created.
+
+[*** script: ords_migrate_grant_priv.sql]
+INFO: Verify if Application Express exists to setup the migration privileges for
+ORDS.
+
+
+PL/SQL procedure successfully completed.
+
+
+Session altered.
+
+[*** script: ords_apex_repair_pub_synonym.sql]
+
+Synonym ORDS_APEX_REPAIR created.
+
+[*** script: allow_apex_entry_points.sql]
+
+PL/SQL procedure successfully completed.
+
+[*** script: ords_verify_install.sql]
+
+Session altered.
+
+INFO: 17:08:44 Validating objects for Oracle REST Data Services.
+VALIDATION: 17:08:44 Starting validation for schema: ORDS_METADATA
+VALIDATION: 17:08:44 Validating objects
+VALIDATION: 17:08:44 Validating roles granted to ORDS_METADATA and
+ORDS_PUBLIC_USER
+VALIDATION: 17:08:44 Validating ORDS Public Synonyms
+VALIDATION: 17:08:45 Total objects: 315, invalid objects: 0, missing objects: 0
+VALIDATION: 17:08:45     88  INDEX
+VALIDATION: 17:08:45      3  LOB
+VALIDATION: 17:08:45     21  PACKAGE
+VALIDATION: 17:08:45     20  PACKAGE BODY
+VALIDATION: 17:08:45      1  PROCEDURE
+VALIDATION: 17:08:45     57  PUBLIC SYNONYM
+VALIDATION: 17:08:45      1  SEQUENCE
+VALIDATION: 17:08:45     31  TABLE
+VALIDATION: 17:08:45     31  TRIGGER
+VALIDATION: 17:08:45     20  TYPE
+VALIDATION: 17:08:45      6  TYPE BODY
+VALIDATION: 17:08:45     36  VIEW
+VALIDATION: 17:08:45 Validation completed.
+INFO: 17:08:45 Completed validation for Oracle REST Data Services.
+
+
+PL/SQL procedure successfully completed.
+
+
+Commit complete.
+
+2023-01-03T17:08:45.112Z INFO        Completed installation for Oracle REST Data Services version 22.4.0.r3401044. Elapsed time: 00:00:20.406
+
+[*** Info: Completed installation for Oracle REST Data Services version 22.4.0.r3401044. Elapsed time: 00:00:20.406
+ ]
+2023-01-03T17:08:45.437Z INFO        HTTP and HTTP/2 cleartext listening on host: 0.0.0.0 port: 8080
+2023-01-03T17:08:45.462Z INFO        Disabling document root because the specified folder does not exist: /home/oracle/ORDSConfig/global/doc_root
+2023-01-03T17:08:45.660Z INFO        Oracle API for MongoDB listening on port: 27018
+2023-01-03T17:08:45.662Z INFO        The Oracle API for MongoDB connection string is:
+         mongodb://[{user}:{password}@]localhost:27018/{user}?authMechanism=PLAIN&authSource=$external&ssl=true&retryWrites=false&loadBalanced=true
+2023-01-03T17:08:51.389Z WARNING     The pool named: |default2|lo| is invalid and will be ignored: The username or password for the connection pool named |default2|lo|, are invalid, expired, or the account is locked
+2023-01-03T17:08:51.536Z INFO        Configuration properties for: |default|lo|
+mongo.port=27018
+db.servicename=orclpdb1
+standalone.context.path=/ords
+db.hostname=localhost
+db.password=******
+db.serviceNameSuffix=
+conf.use.wallet=true
+security.requestValidationFunction=ords_util.authorize_plsql_gateway
+database.api.enabled=true
+db.username=ORDS_PUBLIC_USER
+standalone.http.port=8080
+restEnabledSql.active=true
+mongo.enabled=true
+resource.templates.enabled=false
+db.port=1521
+feature.sdw=true
+config.required=true
+db.connectionType=basic
+standalone.doc.root=/home/oracle/ORDSConfig/global/doc_root
+
+2023-01-03T17:08:51.537Z WARNING     *** jdbc.MaxLimit in configuration |default|lo| is using a value of 10, this setting may not be sized adequately for a production environment ***
+2023-01-03T17:08:51.537Z WARNING     *** jdbc.InitialLimit in configuration |default|lo| is using a value of 3, this setting may not be sized adequately for a production environment ***
+2023-01-03T17:09:00.111Z INFO
+
+Mapped local pools from /home/oracle/ORDSConfig/databases:
+  /ords/                              => default                        => VALID
+
+
+2023-01-03T17:09:00.420Z INFO        Oracle REST Data Services initialized
+Oracle REST Data Services version : 22.4.0.r3401044
+Oracle REST Data Services server info: jetty/10.0.12
+Oracle REST Data Services java info: Java HotSpot(TM) 64-Bit Server VM 11.0.17+10-LTS-269
+
+2023-01-03T17:10:02.274Z WARNING     :::got unchecked exception from user-defined connection labeling callback
+2023-01-03T17:10:03.385Z WARNING     :::got unchecked exception from user-defined connection labeling callback
